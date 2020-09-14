@@ -1,5 +1,6 @@
 package br.com.charlesalves.sincronizacaoreceita.steps.importdata;
 
+import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,9 +16,8 @@ import br.com.charlesalves.sincronizacaoreceita.util.NumberUtil;
 public class ImportReaderConfig {
 
 	@Bean
-	public FlatFileItemReader<Account> importReader(
-		@Value("${file.source}") String resourcePath
-	) {
+	@StepScope
+	public FlatFileItemReader<Account> importReader(@Value("#{jobParameters['fileSource']}") String resourcePath) {
 		Resource resource = new FileSystemResource(resourcePath);
 
 		return new FlatFileItemReaderBuilder<Account>()

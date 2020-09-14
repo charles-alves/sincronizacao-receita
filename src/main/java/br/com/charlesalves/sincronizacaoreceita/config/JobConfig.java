@@ -55,7 +55,7 @@ public class JobConfig {
 		JpaPagingItemReader<Account> exportReader,
 		FlatFileItemWriter<Account> exportWriter
 	) {
-		return stepBuilderFactory.get("export")
+		return stepBuilderFactory.get("export-file")
 			.<Account, Account>chunk(100)
 			.reader(exportReader)
 			.writer(exportWriter)
@@ -63,7 +63,7 @@ public class JobConfig {
 	}
 
 	@Bean
-	public Job job(
+	public Job sincronizationJob(
 		@Qualifier("importFile") Step importFile,
 		@Qualifier("sincronization") Step sincronization,
 		@Qualifier("exportFile") Step exportFile

@@ -1,5 +1,6 @@
 package br.com.charlesalves.sincronizacaoreceita.steps.export;
 
+import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.file.FlatFileItemWriter;
 import org.springframework.batch.item.file.builder.FlatFileItemWriterBuilder;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,7 +14,8 @@ import br.com.charlesalves.sincronizacaoreceita.domain.Account;
 public class ExportWriterConfig {
 
 	@Bean
-	public FlatFileItemWriter<Account> exportWriter(@Value("${file.output}") String outputFile) {
+	@StepScope
+	public FlatFileItemWriter<Account> exportWriter(@Value("#{jobParameters['fileOutput']}") String outputFile) {
 		FileSystemResource output = new FileSystemResource(outputFile);
 
 		return new FlatFileItemWriterBuilder<Account>()

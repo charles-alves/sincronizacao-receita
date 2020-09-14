@@ -20,6 +20,8 @@ spring:
     hibernate:
       ddl-auto: validate
       
+  batch:    job:      enabled: false
+      
 file:
-  source: C:\Users\charl\data\in\accounts.csv
-  output: C:\Users\charl\data\out\accounts.csv
+  source: ${user.home}\data\in\accounts.csv
+  output: ${user.home}\data\out\accounts.csv
