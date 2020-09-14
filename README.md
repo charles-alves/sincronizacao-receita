@@ -4,14 +4,14 @@
 ## Linux/MacOS
 
 ```
-gradlew.bat clean bootRun --file.source=C:\data\accounts.csv --file.output=C:\data\accounts.done.csv
+.\gradlew clean bootRun --args='--file.source=C:\data\accounts.csv --file.output=C:\data\accounts.done.csv'
 
 ```
 
 ## Windows
 
 ```
-.\gradlew clean bootRun --file.source=C:/data/accounts.csv --file.output=C:/data/accounts.done.csv
+./gradlew.bat clean bootRun --args='--file.source=C:\data\accounts.csv --file.output=C:\data\accounts.done.csv'
 
 ```
 
@@ -19,13 +19,13 @@ gradlew.bat clean bootRun --file.source=C:\data\accounts.csv --file.output=C:\da
 ## Linux/MacOS
 
 ```
-gradlew.bat clean test
+.\gradlew clean test
 
 ```
 
 ## Windows
 
 ```
-.\gradlew clean test
+./gradlew.bat clean test
 
 ```
