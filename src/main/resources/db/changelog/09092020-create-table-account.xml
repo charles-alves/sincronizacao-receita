@@ -1,0 +1,37 @@
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xmlns:pro="http://www.liquibase.org/xml/ns/pro" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd"
+>
+	<changeSet id="09092020" author="Charles Alves">
+		<createTable tableName="accounts">
+			<column name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="account_pkey"/>
+			</column>
+			
+			<column name="branch" type="VARCHAR(10)">
+				<constraints nullable="false"/>
+			</column>
+			
+			<column name="number" type="VARCHAR(10)">
+				<constraints nullable="false"/>
+			</column>
+			
+			<column name="balance" type="DOUBLE">
+				<constraints nullable="false"/>
+			</column>
+			
+			<column name="status" type="VARCHAR(10)">
+				<constraints nullable="false"/>
+			</column>
+			
+			<column name="sincronized" type="BOOLEAN" defaultValue="false">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		
+		<createSequence sequenceName="account_id_seq" incrementBy="50"/>
+	</changeSet>
+</databaseChangeLog>
